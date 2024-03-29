@@ -1,11 +1,11 @@
 import React from "react";
 import { cx } from "../utils";
 
-type ButtonProps = {
-  impact: "bold" | "light" | "none";
-  size: "small" | "medium" | "large";
-  shape: "square" | "rounded" | "pill";
-  tone: "default" | "danger" | "success";
+export type ButtonProps = {
+  impact?: "bold" | "light" | "none";
+  size?: "small" | "medium" | "large";
+  shape?: "square" | "rounded" | "pill";
+  tone?: "default" | "danger" | "success";
 };
 
 const baseClasses =
@@ -47,15 +47,20 @@ const shapeClasses: Record<ButtonProps["shape"], string> = {
   pill: "rounded-full",
 };
 
-const Button = ({
-  size = "medium",
-  impact = "bold",
-  shape = "rounded",
-  tone = "default",
-  ...restProps
-}: ButtonProps & React.ComponentProps<"button">) => {
+// eslint-disable-next-line react-refresh/only-export-components
+const Button = (
+  {
+    size = "medium",
+    impact = "bold",
+    shape = "rounded",
+    tone = "default",
+    ...restProps
+  }: ButtonProps & React.ComponentProps<"button">,
+  ref: React.LegacyRef<HTMLButtonElement> | undefined
+) => {
   return (
     <button
+      ref={ref}
       {...restProps}
       className={cx(
         baseClasses,
@@ -67,4 +72,5 @@ const Button = ({
   );
 };
 
-export default Button;
+// eslint-disable-next-line react-refresh/only-export-components
+export default React.forwardRef(Button);
