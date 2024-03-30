@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { cx } from "../utils";
 
@@ -47,7 +48,6 @@ const shapeClasses: Record<ButtonProps["shape"], string> = {
   pill: "rounded-full",
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 const Button = (
   {
     size = "medium",
@@ -72,5 +72,4 @@ const Button = (
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default React.forwardRef(Button);

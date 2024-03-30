@@ -1,6 +1,7 @@
 import Ribbon from "./components/Ribbon";
 import Button from "./components/Button";
 import Modal from "./components/Modal";
+import Quote from "./components/Quote";
 import { useState } from "react";
 
 function App() {
@@ -31,6 +32,11 @@ function App() {
           fugiat ducimus impedit.
         </p>
       </Modal>
+      <div className="w-fit">
+        <Quote by="Nikola Tesla" source="http://example.com">
+          Of all things, I liked books best
+        </Quote>
+      </div>
     </>
   );
 }
