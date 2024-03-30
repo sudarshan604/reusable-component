@@ -1,9 +1,9 @@
 import React from "react";
 import FocusLock from "react-focus-lock";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import { cx } from "../utils";
-import { ButtonProps } from "./Button";
-import Button from "./Button";
+import { cx } from "../../utils";
+import { ButtonProps } from "../Button/Button";
+import Button from "../Button/Button";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -94,7 +94,6 @@ const Modal = ({
                   <h2 className="text-xl font-semibold leading-6 text-slate-900">
                     {title}
                   </h2>
-
                   {children}
                 </div>
               </div>

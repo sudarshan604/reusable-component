@@ -1,7 +1,7 @@
-import Ribbon from "./components/Ribbon";
-import Button from "./components/Button";
-import Modal from "./components/Modal";
-import Quote from "./components/Quote";
+import Ribbon from "./components/Ribbon/Ribbon";
+import Button from "./components/Button/Button";
+import Modal from "./components/Modal/Modal";
+import Quote from "./components/Quote/Quote";
 import { useState } from "react";
 
 function App() {

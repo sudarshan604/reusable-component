@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
-import { cx } from "../utils";
+import { cx } from "../../utils";
 
 export type ButtonProps = {
   impact?: "bold" | "light" | "none";
