@@ -2,6 +2,7 @@ import React from "react";
 import FocusLock from "react-focus-lock";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { cx } from "../../utils";
+import { createPortal } from "react-dom";
 import { ButtonProps } from "../Button/Button";
 import Button from "../Button/Button";
 
@@ -9,8 +10,8 @@ interface ModalProps {
   children: React.ReactNode;
   open: boolean;
   title: string;
-  size?: "small" | "medium" | "large";
-  tone?: ButtonProps["tone"];
+  size: "small" | "medium" | "large";
+  tone: ButtonProps["tone"];
   slideFrom?: "top" | "right" | "bottom" | "left";
   actions?: {
     cancel?: {
@@ -99,9 +100,22 @@ const Modal = ({
               </div>
 
               <div className="flex flex-col gap-2 border-t p-4 sm:flex-row-reverse">
-                <Button tone={tone}>Label 2</Button>
+                <Button
+                  tone={tone}
+                  impact={"bold"}
+                  size={"small"}
+                  shape={"square"}
+                >
+                  Label 2
+                </Button>
 
-                <Button ref={closeBtnRef} impact="none" tone={tone}>
+                <Button
+                  ref={closeBtnRef}
+                  impact="none"
+                  tone={tone}
+                  size={"small"}
+                  shape={"square"}
+                >
                   Label 1
                 </Button>
               </div>
@@ -113,4 +127,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default createPortal(Modal, document.body);

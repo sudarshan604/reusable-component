@@ -1,12 +1,11 @@
-/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { cx } from "../../utils";
 
 export type ButtonProps = {
-  impact?: "bold" | "light" | "none";
-  size?: "small" | "medium" | "large";
-  shape?: "square" | "rounded" | "pill";
-  tone?: "default" | "danger" | "success";
+  impact: "bold" | "light" | "none";
+  size: "small" | "medium" | "large";
+  shape: "square" | "rounded" | "pill";
+  tone: "default" | "danger" | "success";
 };
 
 const baseClasses =
