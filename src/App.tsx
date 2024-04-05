@@ -33,11 +33,11 @@ function App() {
           fugiat ducimus impedit.
         </p>
       </Modal>
-      {/* <div className="w-fit">
+      <div className="w-fit">
         <Quote by="Nikola Tesla" source="http://example.com">
           Of all things, I liked books best
         </Quote>
-      </div> */}
+      </div>
       {/* <BreadCrumb>
         <Crumb href="http://:3000">Home</Crumb>
       </BreadCrumb> */}
