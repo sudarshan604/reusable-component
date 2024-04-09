@@ -6,8 +6,10 @@ interface CrumbProps {
 }
 const Crumb = ({ children, href }: CrumbProps) => {
   return (
-    <li>
-      <a href={href}>{children}</a>
+    <li className={`inline`}>
+      <a href={href} className={`text-inherit  no-underline hover:underline`}>
+        {children}
+      </a>
     </li>
   );
 };

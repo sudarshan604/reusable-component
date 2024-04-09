@@ -38,9 +38,12 @@ function App() {
           Of all things, I liked books best
         </Quote>
       </div>
-      {/* <BreadCrumb>
+      <BreadCrumb>
         <Crumb href="http://:3000">Home</Crumb>
-      </BreadCrumb> */}
+        <Crumb href="http://:3000">Living Room</Crumb>
+        <Crumb href="http://:3000">Couches</Crumb>
+        <Crumb href="http://:3000">Sectionals</Crumb>
+      </BreadCrumb>
     </>
   );
 }

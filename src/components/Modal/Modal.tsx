@@ -2,7 +2,7 @@ import React from "react";
 import FocusLock from "react-focus-lock";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { cx } from "../../utils";
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
 import { ButtonProps } from "../Button/Button";
 import Button from "../Button/Button";
 
@@ -127,4 +127,4 @@ const Modal = ({
   );
 };
 
-export default createPortal(Modal, document.body);
+export default Modal;

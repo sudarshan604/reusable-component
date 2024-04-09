@@ -4,8 +4,8 @@ interface BreadCrumbProps {
 
 const BreadCrumb = ({ children }: BreadCrumbProps) => {
   return (
-    <nav>
-      <ol>{children}</ol>
+    <nav aria-label="BreadCrumb">
+      <ol className={`p-0 m-0 list-none`}>{children}</ol>
     </nav>
   );
 };
