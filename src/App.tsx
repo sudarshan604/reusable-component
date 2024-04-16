@@ -7,9 +7,13 @@ import BreadCrumb from "./components/BreadCrumb/BreadCrumb";
 import Crumb from "./components/BreadCrumb/Crumb";
 function App() {
   const [openModel, setModelOpen] = useState(false);
-  // const handleClick = () => {
-  //   console.log("hello");
-  // };
+
+  const handleConfirm = () => {
+    setTimeout(() => {
+      setModelOpen(false);
+    }, 200);
+  };
+
   return (
     <>
       <div className="relative h-96 ml-7 w-60 mt-20 bg-slate-500">
@@ -26,7 +30,23 @@ function App() {
       >
         CLick
       </Button>
-      <Modal title="this is title" open={openModel} tone="danger">
+      <Modal
+        title="this is title"
+        onClose={() => setModelOpen(false)}
+        open={openModel}
+        tone="danger"
+        size="large"
+        actions={{
+          confirm: {
+            label: "Yes,confirm",
+            action: handleConfirm,
+          },
+          cancel: {
+            label: "Cancel",
+            action: () => setModelOpen(false),
+          },
+        }}
+      >
         <h1>Hello world</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione

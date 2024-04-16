@@ -9,6 +9,7 @@ import Button from "../Button/Button";
 interface ModalProps {
   children: React.ReactNode;
   open: boolean;
+  onClose: () => void;
   title: string;
   size: "small" | "medium" | "large";
   tone: ButtonProps["tone"];
@@ -39,10 +40,12 @@ const toneClasses: Record<ModalProps["tone"], string> = {
 
 const Modal = ({
   children,
+  onClose,
   open = false,
   size = "medium",
   title,
   tone = "default",
+  actions,
 }: ModalProps) => {
   const closeBtnRef = React.useRef<HTMLButtonElement | null>(null);
 
@@ -58,7 +61,7 @@ const Modal = ({
   React.useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.code === "Escape") {
-        //
+        onClose();
       }
     }
     window.addEventListener("keydown", handleKeyDown);
@@ -82,6 +85,7 @@ const Modal = ({
               "fixed inset-0 bg-opacity-75 transition-opacity",
               toneClasses[tone]
             )}
+            onClick={onClose}
           ></div>
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <div
@@ -105,19 +109,23 @@ const Modal = ({
                   impact={"bold"}
                   size={"small"}
                   shape={"square"}
+                  onClick={actions?.confirm.action}
                 >
-                  Label 2
+                  <span>{actions?.confirm.label}</span>
                 </Button>
 
-                <Button
-                  ref={closeBtnRef}
-                  impact="none"
-                  tone={tone}
-                  size={"small"}
-                  shape={"square"}
-                >
-                  Label 1
-                </Button>
+                {actions?.cancel && (
+                  <Button
+                    ref={closeBtnRef}
+                    impact="none"
+                    tone={tone}
+                    size={"small"}
+                    shape={"square"}
+                    onClick={actions.cancel.action}
+                  >
+                    <span>{actions.cancel.label}</span>
+                  </Button>
+                )}
               </div>
             </div>
           </div>
