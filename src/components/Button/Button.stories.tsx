@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { ButtonProps } from "./Button";
 import Button from "./Button";
 
 export default {
@@ -7,26 +6,13 @@ export default {
   component: Button,
   args: {
     children: "Comfort food",
+    size: "medium",
+    impact: "none",
+    shape: "rounded",
+    tone: "default",
   },
 } as ComponentMeta<typeof Button>;
-
-{
-  /* <Button
-impact="bold"
-size="medium"
-tone="danger"
-shape="rounded"
-onClick={() => setModelOpen(!openModel)}
-> */
-}
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
-
-Default.args = {
-  impact: "bold",
-  size: "medium",
-  tone: "danger",
-  shape: "rounded",
-};

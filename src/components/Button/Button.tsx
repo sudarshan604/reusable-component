@@ -71,4 +71,5 @@ const Button = (
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default React.forwardRef(Button);
