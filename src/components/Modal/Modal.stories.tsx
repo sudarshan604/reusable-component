@@ -6,7 +6,7 @@ export default {
   title: "Components/Modal",
   component: Modal,
   args: {
-    children: "<p>jhead</p>",
+    children: "",
     open: true,
     size: "medium",
     title: "first",

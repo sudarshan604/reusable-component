@@ -15,4 +15,12 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Default = Template.bind({});
+export const Danger = Template.bind({});
+Danger.args = {
+  tone: "danger",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  tone: "success",
+};
