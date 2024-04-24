@@ -1,33 +1,36 @@
-// const syles={
-//     small:{
+interface ProgressBarProps {
+  size: "small" | "medium" | "large";
+  value: number | string;
+}
 
-//     },
-//     medium:{
+const SizeClasses: Record<ProgressBarProps["size"], string> = {
+  small: "h-2 ",
+  medium: "h-8",
+  large: "h-4",
+};
 
-//     },
-//     large:{
-//         height:16
-//         padding:4
-//     }
-
-// }
-
-const ProgressBar = ({ value = 90, size = "small" }) => {
-  //   const height = size == "small" ? 8 : 12;
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  value = 90,
+  size = "small",
+}) => {
   return (
     <div
       role="progressbar"
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="bg-gray-400
-        shadow-inner
-        border-x-4
-        border-y-4
-        overflow-hidden
-      "
+      className={`bg-gray-400
+       
+      `}
     >
-      <div className={`w-${value}% h-2 bg-blue-500`}></div>
+      <div
+        className="
+        rounded-s
+        overflow-hidden
+        "
+      >
+        <div className={`w-1/4 ${SizeClasses[size]}  bg-blue-500`}></div>
+      </div>
     </div>
   );
 };

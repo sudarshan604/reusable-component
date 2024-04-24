@@ -5,6 +5,7 @@ import Quote from "./components/Quote/Quote";
 import { useState } from "react";
 import BreadCrumb from "./components/BreadCrumb/BreadCrumb";
 import Crumb from "./components/BreadCrumb/Crumb";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 function App() {
   const [openModel, setModelOpen] = useState(false);
 
@@ -64,6 +65,9 @@ function App() {
         <Crumb href="http://:3000">Couches</Crumb>
         <Crumb href="http://:3000">Sectionals</Crumb>
       </BreadCrumb>
+      <div className="w-1/3">
+        <ProgressBar size="medium" value={29} />
+      </div>
     </>
   );
 }
