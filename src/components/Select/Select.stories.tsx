@@ -6,14 +6,20 @@ import Select from "./Select";
 export default {
   title: "Components/Select",
   component: Select,
-  args: {
-    children: <option value="first">New item</option>,
-    value: "first",
-    onchange: (e) => {},
-  },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const SelectWithHooks = () => {
+  const [value, setValue] = React.useState("Price");
 
-export const Default = Template.bind({});
-Default;
+  return (
+    <Select value={value} onChange={(e) => setValue(e.target.value)}>
+      <option value="newest">Newest Releases</option>
+      <option value="price">Price</option>
+      <option value="curated">Curated</option>
+    </Select>
+  );
+};
+
+export const Default = {
+  render: () => <SelectWithHooks />,
+};
