@@ -1,18 +1,48 @@
-const Select = () => {
+import Icon from "../../assets/icon";
+import { getDisplayedValue } from "../../utils/select.helper";
+
+export interface SelectProps {
+  children: React.ReactNode;
+  value: string;
+  onChange?: (e: EventTarget) => void;
+}
+
+const Select = ({ value, children, onChange }: SelectProps) => {
+  const displayValue = getDisplayedValue({ value, children });
   return (
     <div className="relative w-max">
-      <select className="absolute opacity-0 top-0 left-0 w-full h-full">
-        <option>c++</option>
-        <option>Java</option>
+      <select
+        onChange={onChange}
+        className="absolute opacity-0 peer top-0 left-0 w-full h-full"
+      >
+        {children}
       </select>
+      {/* // TODO: Fix outline issued*/}
       <div
         className="text-gray-700
          bg-gray-400
          text-base
+         rounded-lg
        px-3 py-4
+       pr-[52px]
+       peer-focus:outline-double
+       peer-hover:text-black
       "
       >
-        hello world
+        {displayValue}
+        {/* // TODO: hover  issued*/}
+
+        <div
+          className=" absolute top-0 
+         bottom-0
+         m-auto
+        right-[10px]
+        w-6 h-6
+        pointer-events-none
+        "
+        >
+          <Icon type="chevrondown" strokeWidth={1} width={24} />
+        </div>
       </div>
     </div>
   );
