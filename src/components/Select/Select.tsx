@@ -4,11 +4,12 @@ import { getDisplayedValue } from "../../utils/select.helper";
 export interface SelectProps {
   children: React.ReactNode;
   value: string;
-  onChange?: (e: EventTarget) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Select = ({ value, children, onChange }: SelectProps) => {
-  const displayValue = getDisplayedValue({ value, children });
+  const displayValue = getDisplayedValue(value, children);
+
   return (
     <div className="relative w-max">
       <select
@@ -30,6 +31,7 @@ const Select = ({ value, children, onChange }: SelectProps) => {
       "
       >
         {displayValue}
+
         {/* // TODO: hover  issued*/}
 
         <div

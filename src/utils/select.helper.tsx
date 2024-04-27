@@ -1,10 +1,17 @@
 import React from "react";
-import { SelectProps } from "../components/Select/Select";
 
-export const getDisplayedValue: React.FC<SelectProps> = (value, children) => {
-  return "first";
-  //   const childArray = React.Children.toArray(children);
-  //   const selectedChild = childArray.find((child) => child.props.value === value);
+export const getDisplayedValue = (value: string, children: React.ReactNode) => {
+  const childArray = React.Children.toArray(children);
 
-  //   return selectedChild.props.children;
+  const selectedChild = childArray.find((child) => {
+    if (React.isValidElement(child)) {
+      return child.props.value === value;
+    }
+  });
+
+  if (selectedChild && React.isValidElement(selectedChild)) {
+    return selectedChild.props.value;
+  }
+
+  return null;
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { getDisplayedValue } from "../../utils/select.helper";
+import { ComponentMeta } from "@storybook/react";
 import Select from "./Select";
 
 export default {
@@ -9,10 +8,15 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const SelectWithHooks = () => {
-  const [value, setValue] = React.useState("Price");
+  const [value, setValue] = React.useState<string>("newest");
 
   return (
-    <Select value={value} onChange={(e) => setValue(e.target.value)}>
+    <Select
+      value={value}
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+        setValue(e.target.value)
+      }
+    >
       <option value="newest">Newest Releases</option>
       <option value="price">Price</option>
       <option value="curated">Curated</option>
