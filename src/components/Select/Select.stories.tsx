@@ -20,6 +20,7 @@ const SelectWithHooks = () => {
       <option value="newest">Newest Releases</option>
       <option value="price">Price</option>
       <option value="curated">Curated</option>
+      <option value="Current (us)">Currency (us)</option>
     </Select>
   );
 };

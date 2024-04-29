@@ -1,8 +1,8 @@
 import React from "react";
 import ChevronIcon, { IconProps } from "./chevron.icon";
-
+import MagnifyIcon from "./maginfy.icon";
 type _IconProps = IconProps & {
-  type: "chevrondown";
+  type: "chevrondown" | "magnify";
 };
 
 const Icon = ({ type, color, ...rest }: _IconProps) => {
@@ -13,6 +13,7 @@ const Icon = ({ type, color, ...rest }: _IconProps) => {
       {
         {
           chevrondown: <ChevronIcon color={color} {...rest} />,
+          magnify: <MagnifyIcon color={color} {...rest} />,
         }[type]
       }
     </React.Fragment>
